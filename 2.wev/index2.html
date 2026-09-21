@@ -1,0 +1,1696 @@
+html
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nordic Fitness</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #eef1f4;
+            color: #222;
+        }
+
+
+        /* ======================================
+           OLDALSÁV
+        ====================================== */
+
+        .sidebar {
+
+            position: fixed;
+
+            left: 0;
+            top: 0;
+
+            width: 240px;
+            height: 100vh;
+
+            background-color: #17202a;
+
+            padding: 30px 20px;
+
+            z-index: 10;
+        }
+
+
+        .logo {
+
+            text-align: center;
+
+            color: #38bdf8;
+
+            font-size: 25px;
+
+            font-weight: bold;
+
+            margin-bottom: 50px;
+        }
+
+
+        .sidebar a {
+
+            display: block;
+
+            color: #d8dee3;
+
+            text-decoration: none;
+
+            padding: 15px;
+
+            margin-bottom: 8px;
+
+            border-radius: 8px;
+        }
+
+
+        .sidebar a:hover {
+
+            background-color: #263545;
+
+            color: #38bdf8;
+        }
+
+
+        /* ======================================
+           FŐ TARTALOM
+        ====================================== */
+
+        .main {
+
+            margin-left: 240px;
+        }
+
+
+        /* ======================================
+           FELSŐ FEJLÉC
+        ====================================== */
+
+        .topbar {
+
+            height: 75px;
+
+            background-color: white;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            padding: 0 40px;
+
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+
+        .topbar h2 {
+
+            margin: 0;
+
+            color: #17202a;
+        }
+
+
+        .status {
+
+            color: #22c55e;
+
+            font-weight: bold;
+        }
+
+
+        /* ======================================
+           HERO
+        ====================================== */
+
+        .hero {
+
+            min-height: 460px;
+
+            display: flex;
+
+            align-items: center;
+
+            padding: 60px;
+
+            background-image:
+
+            linear-gradient(
+                rgba(10,20,30,0.75),
+                rgba(10,20,30,0.75)
+            ),
+
+            url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48");
+
+            background-size: cover;
+
+            background-position: center;
+
+            color: white;
+        }
+
+
+        .hero-content {
+
+            max-width: 700px;
+        }
+
+
+        .hero h1 {
+
+            font-size: 55px;
+
+            margin-bottom: 20px;
+
+            color: #38bdf8;
+        }
+
+
+        .hero p {
+
+            font-size: 19px;
+
+            line-height: 1.7;
+
+            color: #ddd;
+        }
+
+
+        .hero-gomb {
+
+            display: inline-block;
+
+            margin-top: 25px;
+
+            padding: 15px 30px;
+
+            background-color: #38bdf8;
+
+            color: #17202a;
+
+            border-radius: 8px;
+
+            text-decoration: none;
+
+            font-weight: bold;
+        }
+
+
+        /* ======================================
+           TARTALMI TERÜLETEK
+        ====================================== */
+
+        .content {
+
+            padding: 50px;
+        }
+
+
+        .cim {
+
+            margin-bottom: 30px;
+        }
+
+
+        .cim h2 {
+
+            color: #17202a;
+
+            margin-bottom: 8px;
+
+            font-size: 32px;
+        }
+
+
+        .cim p {
+
+            color: #777;
+        }
+
+
+        /* ======================================
+           STATISZTIKÁK
+        ====================================== */
+
+        .statisztikak {
+
+            display: grid;
+
+            grid-template-columns:
+            repeat(4, 1fr);
+
+            gap: 20px;
+
+            margin-bottom: 50px;
+        }
+
+
+        .stat {
+
+            background-color: white;
+
+            padding: 25px;
+
+            border-radius: 12px;
+
+            box-shadow:
+            0 5px 15px rgba(0,0,0,0.06);
+
+            border-top: 4px solid #38bdf8;
+        }
+
+
+        .stat h3 {
+
+            color: #38bdf8;
+
+            font-size: 30px;
+
+            margin: 0 0 10px 0;
+        }
+
+
+        .stat p {
+
+            color: #777;
+
+            margin: 0;
+        }
+
+
+        /* ======================================
+           EDZŐK
+        ====================================== */
+
+        #edzok {
+
+            display: grid;
+
+            grid-template-columns:
+            repeat(3, 1fr);
+
+            gap: 25px;
+
+            margin-bottom: 60px;
+        }
+
+
+        .edzo {
+
+            background-color: white;
+
+            padding: 25px;
+
+            border-radius: 12px;
+
+            text-align: center;
+
+            box-shadow:
+            0 5px 15px rgba(0,0,0,0.06);
+        }
+
+
+        .edzo-kor {
+
+            width: 100px;
+
+            height: 100px;
+
+            border-radius: 50%;
+
+            margin: auto;
+
+            margin-bottom: 20px;
+
+            background-size: cover;
+
+            background-position: center;
+        }
+
+
+        .edzo1 {
+
+            background-image:
+            url("https://images.unsplash.com/photo-1534528741775-53994a69daeb");
+        }
+
+
+        .edzo2 {
+
+            background-image:
+            url("https://images.unsplash.com/photo-1500648767791-00dcc994a43e");
+        }
+
+
+        .edzo3 {
+
+            background-image:
+            url("https://images.unsplash.com/photo-1494790108377-be9c29b29330");
+        }
+
+
+        .edzo h3 {
+
+            margin-bottom: 8px;
+
+            color: #17202a;
+        }
+
+
+        .edzo p {
+
+            color: #777;
+
+            line-height: 1.5;
+        }
+
+
+        /* ======================================
+           ÓRAREND
+        ====================================== */
+
+        .tablazat-doboz {
+
+            background-color: white;
+
+            border-radius: 12px;
+
+            overflow: hidden;
+
+            box-shadow:
+            0 5px 15px rgba(0,0,0,0.06);
+
+            margin-bottom: 60px;
+        }
+
+
+        table {
+
+            width: 100%;
+
+            border-collapse: collapse;
+        }
+
+
+        th {
+
+            background-color: #17202a;
+
+            color: white;
+
+            padding: 18px;
+
+            text-align: left;
+        }
+
+
+        td {
+
+            padding: 17px;
+
+            border-bottom: 1px solid #eee;
+        }
+
+
+        tr:hover {
+
+            background-color: #f8fafc;
+        }
+
+
+        /* ======================================
+           EDZÉSTERVEK
+        ====================================== */
+
+        .tervek {
+
+            display: grid;
+
+            grid-template-columns:
+            repeat(3, 1fr);
+
+            gap: 25px;
+
+            margin-bottom: 60px;
+        }
+
+
+        .terv {
+
+            background-color: #17202a;
+
+            color: white;
+
+            padding: 30px;
+
+            border-radius: 12px;
+        }
+
+
+        .terv h3 {
+
+            color: #38bdf8;
+
+            margin-top: 0;
+        }
+
+
+        .terv p {
+
+            color: #cbd5e1;
+
+            line-height: 1.6;
+        }
+
+
+        .terv ul {
+
+            padding-left: 20px;
+        }
+
+
+        .terv li {
+
+            padding: 7px 0;
+
+            color: #ddd;
+        }
+
+
+        /* ======================================
+           FELSZERELÉSEK
+        ====================================== */
+
+        .felszereles {
+
+            display: grid;
+
+            grid-template-columns:
+            repeat(2, 1fr);
+
+            gap: 20px;
+
+            margin-bottom: 60px;
+        }
+
+
+        .felszereles-box {
+
+            background-color: white;
+
+            padding: 25px;
+
+            border-left: 5px solid #38bdf8;
+
+            border-radius: 10px;
+        }
+
+
+        .felszereles-box h3 {
+
+            margin-top: 0;
+
+            color: #17202a;
+        }
+
+
+        .felszereles-box p {
+
+            color: #777;
+
+            line-height: 1.5;
+        }
+
+
+        /* ======================================
+           TIPPEK
+        ====================================== */
+
+        .tippek-doboz {
+
+            background-color: #17202a;
+
+            padding: 35px;
+
+            border-radius: 12px;
+
+            margin-bottom: 60px;
+        }
+
+
+        #tippek {
+
+            list-style: none;
+
+            padding: 0;
+
+            margin: 0;
+        }
+
+
+        #tippek li {
+
+            padding: 15px;
+
+            margin-bottom: 10px;
+
+            background-color: #232f3d;
+
+            border-radius: 8px;
+
+            color: #ddd;
+
+            border-left: 4px solid #38bdf8;
+        }
+
+
+        /* ======================================
+           TAGSÁGI CSOMAGOK
+        ====================================== */
+
+        .tagsagok {
+
+            display: grid;
+
+            grid-template-columns:
+            repeat(3, 1fr);
+
+            gap: 25px;
+
+            margin-bottom: 60px;
+        }
+
+
+        .tagsag {
+
+            background-color: white;
+
+            padding: 30px;
+
+            border-radius: 12px;
+
+            text-align: center;
+
+            box-shadow:
+            0 5px 15px rgba(0,0,0,0.06);
+        }
+
+
+        .tagsag:nth-child(2) {
+
+            border: 2px solid #38bdf8;
+        }
+
+
+        .tagsag h3 {
+
+            color: #17202a;
+
+            font-size: 24px;
+        }
+
+
+        .tagsag-ar {
+
+            font-size: 32px;
+
+            font-weight: bold;
+
+            color: #38bdf8;
+
+            margin: 20px 0;
+        }
+
+
+        .tagsag ul {
+
+            list-style: none;
+
+            padding: 0;
+
+            color: #777;
+        }
+
+
+        .tagsag li {
+
+            padding: 8px;
+        }
+
+
+        /* ======================================
+           KAPCSOLAT
+        ====================================== */
+
+        .kapcsolat {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 25px;
+
+            margin-bottom: 60px;
+        }
+
+
+        .kapcsolat-box {
+
+            background-color: white;
+
+            padding: 30px;
+
+            border-radius: 12px;
+
+            box-shadow:
+            0 5px 15px rgba(0,0,0,0.06);
+        }
+
+
+        .kapcsolat-box h3 {
+
+            color: #38bdf8;
+        }
+
+
+        .kapcsolat-box p {
+
+            color: #777;
+
+            line-height: 1.6;
+        }
+
+
+        /* ======================================
+           LÁBLÉC
+        ====================================== */
+
+        footer {
+
+            background-color: #0f151c;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 35px;
+        }
+
+
+        footer .logo {
+
+            margin-bottom: 15px;
+        }
+
+
+        footer p {
+
+            color: #888;
+        }
+
+
+        /* ======================================
+           MOBIL
+        ====================================== */
+
+        @media (max-width: 900px) {
+
+            .sidebar {
+
+                position: static;
+
+                width: 100%;
+
+                height: auto;
+
+            }
+
+
+            .main {
+
+                margin-left: 0;
+            }
+
+
+            .statisztikak {
+
+                grid-template-columns: 1fr 1fr;
+            }
+
+
+            #edzok {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .tervek {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .tagsagok {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .felszereles {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .kapcsolat {
+
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .content {
+
+                padding: 25px;
+            }
+
+
+            .hero {
+
+                padding: 35px 25px;
+            }
+
+
+            .hero h1 {
+
+                font-size: 40px;
+            }
+
+
+            .statisztikak {
+
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ======================================
+         OLDALSÁV
+    ====================================== -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            NORDIC FITNESS
+        </div>
+
+
+        <a href="#fooldal">
+            🏠 Főoldal
+        </a>
+
+
+        <a href="#edzok-resz">
+            👤 Edzők
+        </a>
+
+
+        <a href="#orarend">
+            📅 Órarend
+        </a>
+
+
+        <a href="#tervek">
+            🏋 Edzéstervek
+        </a>
+
+
+        <a href="#felszereles">
+            ⚙ Felszerelés
+        </a>
+
+
+        <a href="#tippek-resz">
+            💡 Tippek
+        </a>
+
+
+        <a href="#tagsag">
+            ⭐ Tagság
+        </a>
+
+
+        <a href="#kapcsolat">
+            📞 Kapcsolat
+        </a>
+
+    </aside>
+
+
+
+    <!-- ======================================
+         FŐ TARTALOM
+    ====================================== -->
+
+    <div class="main">
+
+
+        <!-- FELSŐ FEJLÉC -->
+
+        <div class="topbar">
+
+            <h2>Napi edzésközpont</h2>
+
+            <div class="status">
+                ● NYITVA
+            </div>
+
+        </div>
+
+
+
+        <!-- ======================================
+             HERO
+        ====================================== -->
+
+        <section class="hero" id="fooldal">
+
+            <div class="hero-content">
+
+                <h1>Érd el a céljaidat!</h1>
+
+                <p>
+
+                    A Nordic Fitness modern gépekkel,
+                    tapasztalt edzőkkel és barátságos
+                    közösséggel várja azokat, akik szeretnének
+                    fittebbé és erősebbé válni.
+
+                </p>
+
+
+                <a href="#tagsag" class="hero-gomb">
+
+                    Tagságok megtekintése
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ======================================
+             TARTALOM
+        ====================================== -->
+
+        <div class="content">
+
+
+            <!-- STATISZTIKA -->
+
+            <div class="statisztikak">
+
+
+                <div class="stat">
+
+                    <h3>1200+</h3>
+
+                    <p>
+                        Aktív tag
+                    </p>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <h3>35</h3>
+
+                    <p>
+                        Modern gép
+                    </p>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <h3>12</h3>
+
+                    <p>
+                        Edző
+                    </p>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <h3>18</h3>
+
+                    <p>
+                        Heti csoportos óra
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ======================================
+                 EDZŐK
+            ====================================== -->
+
+            <div id="edzok-resz">
+
+                <div class="cim">
+
+                    <h2>Személyi edzőink</h2>
+
+                    <p>
+                        Tapasztalt szakemberek segítenek a céljaid elérésében.
+                    </p>
+
+                </div>
+
+
+                <div id="edzok"></div>
+
+            </div>
+
+
+
+            <!-- ======================================
+                 ÓRAREND
+            ====================================== -->
+
+            <div id="orarend">
+
+                <div class="cim">
+
+                    <h2>Heti órarend</h2>
+
+                    <p>
+                        Válaszd ki a neked megfelelő edzést!
+                    </p>
+
+                </div>
+
+
+                <div class="tablazat-doboz">
+
+                    <table>
+
+                        <tr>
+
+                            <th>Nap</th>
+
+                            <th>Időpont</th>
+
+                            <th>Edzés</th>
+
+                            <th>Edző</th>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>Hétfő</td>
+
+                            <td>17:00</td>
+
+                            <td>Cross Training</td>
+
+                            <td>Anna</td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>Kedd</td>
+
+                            <td>18:00</td>
+
+                            <td>Functional Training</td>
+
+                            <td>Gábor</td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>Szerda</td>
+
+                            <td>17:30</td>
+
+                            <td>Spinning</td>
+
+                            <td>Laura</td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>Csütörtök</td>
+
+                            <td>19:00</td>
+
+                            <td>Erősítő edzés</td>
+
+                            <td>Anna</td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>Péntek</td>
+
+                            <td>18:00</td>
+
+                            <td>HIIT</td>
+
+                            <td>Gábor</td>
+
+                        </tr>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ======================================
+                 EDZÉSTERVEK
+            ====================================== -->
+
+            <div id="tervek">
+
+                <div class="cim">
+
+                    <h2>Edzéstervek</h2>
+
+                    <p>
+                        Különböző célokhoz különböző edzésprogramok.
+                    </p>
+
+                </div>
+
+
+                <div class="tervek">
+
+
+                    <div class="terv">
+
+                        <h3>KEZDŐ</h3>
+
+                        <p>
+
+                            Ideális azoknak, akik most kezdik
+                            a rendszeres edzést.
+
+                        </p>
+
+
+                        <ul>
+
+                            <li>Heti 3 edzés</li>
+
+                            <li>Teljes test átmozgatása</li>
+
+                            <li>Alapgyakorlatok</li>
+
+                            <li>Könnyített súlyok</li>
+
+                        </ul>
+
+                    </div>
+
+
+                    <div class="terv">
+
+                        <h3>IZOMÉPÍTÉS</h3>
+
+                        <p>
+
+                            Kifejezetten az izomtömeg
+                            növelésére összeállított terv.
+
+                        </p>
+
+
+                        <ul>
+
+                            <li>Heti 4-5 edzés</li>
+
+                            <li>Súlyzós gyakorlatok</li>
+
+                            <li>Progresszív terhelés</li>
+
+                            <li>Izomcsoportokra bontás</li>
+
+                        </ul>
+
+                    </div>
+
+
+                    <div class="terv">
+
+                        <h3>FOGYÁS</h3>
+
+                        <p>
+
+                            Kardió és erősítő edzések
+                            kombinációja.
+
+                        </p>
+
+
+                        <ul>
+
+                            <li>Heti 4 edzés</li>
+
+                            <li>Kardió</li>
+
+                            <li>HIIT</li>
+
+                            <li>Teljes test edzés</li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ======================================
+                 FELSZERELÉS
+            ====================================== -->
+
+            <div id="felszereles">
+
+                <div class="cim">
+
+                    <h2>Felszerelés</h2>
+
+                    <p>
+                        Modern és rendszeresen karbantartott eszközök.
+                    </p>
+
+                </div>
+
+
+                <div class="felszereles">
+
+
+                    <div class="felszereles-box">
+
+                        <h3>Erőnléti gépek</h3>
+
+                        <p>
+
+                            Többféle láb-, mell-, hát- és
+                            vállizom erősítő gép áll rendelkezésre.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="felszereles-box">
+
+                        <h3>Szabad súlyok</h3>
+
+                        <p>
+
+                            Kézi súlyzók, rudak, tárcsák és
+                            kettlebellek különböző méretekben.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="felszereles-box">
+
+                        <h3>Kardió gépek</h3>
+
+                        <p>
+
+                            Futópadok, elliptikus trénerek,
+                            szobakerékpárok és evezőgépek.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="felszereles-box">
+
+                        <h3>Funkcionális terem</h3>
+
+                        <p>
+
+                            Külön terület köredzéshez,
+                            saját testsúlyos edzéshez és HIIT-hez.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ======================================
+                 TIPPEK
+            ====================================== -->
+
+            <div id="tippek-resz">
+
+                <div class="cim">
+
+                    <h2>Edzési tippek</h2>
+
+                    <p>
+                        Néhány egyszerű tanács a hatékonyabb edzéshez.
+                    </p>
+
+                </div>
+
+
+                <div class="tippek-doboz">
+
+                    <ul id="tippek"></ul>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ======================================
+                 TAGSÁG
+            ====================================== -->
+
+            <div id="tagsag">
+
+                <div class="cim">
+
+                    <h2>Tagsági csomagok</h2>
+
+                    <p>
+                        Válaszd ki a számodra megfelelő lehetőséget.
+                    </p>
+
+                </div>
+
+
+                <div class="tagsagok">
+
+
+                    <div class="tagsag">
+
+                        <h3>START</h3>
+
+                        <div class="tagsag-ar">
+                            7 990 Ft
+                        </div>
+
+                        <p>
+                            / hónap
+                        </p>
+
+
+                        <ul>
+
+                            <li>✓ Edzőterem használat</li>
+
+                            <li>✓ Öltöző</li>
+
+                            <li>✓ Zuhanyzó</li>
+
+                            <li>✓ Wi-Fi</li>
+
+                        </ul>
+
+                    </div>
+
+
+                    <div class="tagsag">
+
+                        <h3>PRO</h3>
+
+                        <div class="tagsag-ar">
+                            11 990 Ft
+                        </div>
+
+                        <p>
+                            / hónap
+                        </p>
+
+
+                        <ul>
+
+                            <li>✓ Korlátlan belépés</li>
+
+                            <li>✓ Csoportos órák</li>
+
+                            <li>✓ Szauna</li>
+
+                            <li>✓ Edzésterv</li>
+
+                        </ul>
+
+                    </div>
+
+
+                    <div class="tagsag">
+
+                        <h3>PREMIUM</h3>
+
+                        <div class="tagsag-ar">
+                            17 990 Ft
+                        </div>
+
+                        <p>
+                            / hónap
+                        </p>
+
+
+                        <ul>
+
+                            <li>✓ Minden PRO előny</li>
+
+                            <li>✓ Személyi edző</li>
+
+                            <li>✓ Táplálkozási tanácsadás</li>
+
+                            <li>✓ Extra szolgáltatások</li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ======================================
+                 KAPCSOLAT
+            ====================================== -->
+
+            <div id="kapcsolat">
+
+                <div class="cim">
+
+                    <h2>Kapcsolat</h2>
+
+                    <p>
+                        Várunk a Nordic Fitnessben!
+                    </p>
+
+                </div>
+
+
+                <div class="kapcsolat">
+
+
+                    <div class="kapcsolat-box">
+
+                        <h3>📍 Cím</h3>
+
+                        <p>
+                            4400 Sport utca 12.
+                        </p>
+
+                    </div>
+
+
+                    <div class="kapcsolat-box">
+
+                        <h3>📞 Telefon</h3>
+
+                        <p>
+                            +36 30 222 4567
+                        </p>
+
+                    </div>
+
+
+                    <div class="kapcsolat-box">
+
+                        <h3>✉ E-mail</h3>
+
+                        <p>
+                            info@nordicfitness.hu
+                        </p>
+
+                    </div>
+
+
+                    <div class="kapcsolat-box">
+
+                        <h3>🕒 Nyitvatartás</h3>
+
+                        <p>
+
+                            Hétfő - Péntek:
+                            06:00 - 23:00
+
+                            <br><br>
+
+                            Szombat - Vasárnap:
+                            08:00 - 20:00
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- ======================================
+             LÁBLÉC
+        ====================================== -->
+
+        <footer>
+
+            <div class="logo">
+                NORDIC FITNESS
+            </div>
+
+            <p>
+                Train hard. Stay strong.
+            </p>
+
+            <p>
+                © 2026 Nordic Fitness | Póti László
+            </p>
+
+        </footer>
+
+
+    </div>
+
+
+
+    <!-- ======================================
+         JAVASCRIPT
+    ====================================== -->
+
+    <script>
+
+
+        /* ======================================
+           EDZŐK TÖMBJEI
+        ====================================== */
+
+        var edzok = [
+
+            "Kovács Anna",
+
+            "Nagy Gábor",
+
+            "Szabó Laura",
+
+            "Tóth Dávid"
+
+        ];
+
+
+        var szakteruletek = [
+
+            "Erőnléti edzés",
+
+            "Testépítés",
+
+            "HIIT és kardió",
+
+            "Functional Training"
+
+        ];
+
+
+        var tapasztalat = [
+
+            "8 év tapasztalat",
+
+            "10 év tapasztalat",
+
+            "6 év tapasztalat",
+
+            "7 év tapasztalat"
+
+        ];
+
+
+        var edzoLista =
+            document.getElementById("edzok");
+
+
+        for (var i = 0; i < edzok.length; i++) {
+
+
+            var edzo = "";
+
+
+            edzo =
+
+                "<div class='edzo'>" +
+
+                    "<div class='edzo-kor edzo" +
+                    (i + 1) +
+                    "'></div>" +
+
+                    "<h3>" +
+                    edzok[i] +
+                    "</h3>" +
+
+                    "<p>" +
+                    szakteruletek[i] +
+                    "</p>" +
+
+                    "<p>" +
+                    tapasztalat[i] +
+                    "</p>" +
+
+                "</div>";
+
+
+            edzoLista.innerHTML =
+                edzoLista.innerHTML + edzo;
+
+        }
+
+
+
+        /* ======================================
+           EDZÉSI TIPPEK
+        ====================================== */
+
+        var tippek = [
+
+            "Mindig kezdj legalább 5-10 perc bemelegítéssel.",
+
+            "Edzés közben fogyassz elegendő folyadékot.",
+
+            "Ne próbálj az első napon maximális súllyal dolgozni.",
+
+            "Tarts megfelelő pihenőidőt a sorozatok között.",
+
+            "A rendszeresség fontosabb, mint az egyszeri túlzott terhelés.",
+
+            "Az edzés mellett a megfelelő táplálkozásra is figyelj.",
+
+            "Aludj eleget, hogy a szervezeted regenerálódni tudjon.",
+
+            "Figyelj a helyes gyakorlatvégzésre."
+
+        ];
+
+
+        var tippekLista =
+            document.getElementById("tippek");
+
+
+        for (var j = 0; j < tippek.length; j++) {
+
+
+            var tipp = "";
+
+
+            tipp =
+
+                "<li>" +
+
+                "✓ " +
+
+                tippek[j] +
+
+                "</li>";
+
+
+            tippekLista.innerHTML =
+
+                tippekLista.innerHTML +
+
+                tipp;
+
+        }
+
+    </script>
+
+</body>
+
+</html>
